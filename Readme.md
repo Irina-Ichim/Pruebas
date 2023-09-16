@@ -31,7 +31,7 @@ El proyecto consta de dos partes principales:
 1. Clona este repositorio en tu máquina local:
 
    ```bash
-   git clone https://tu-repositorio.git
+   git clone https://github.com/Irina-Ichim/Pruebas
    ```
 
 2. Abre el archivo `index.html` en tu navegador para ver la galería 3D y la presentación personal.
