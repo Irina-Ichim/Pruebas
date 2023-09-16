@@ -1,38 +1,30 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pruebas</title>
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Galería 3D</title>
     <style>
-        body {
-            margin: 0;
-           overflow: hidden;
-            display: flex;
-        }
+      body {
+        margin: 0;
+        overflow: hidden;
+        display: flex;
+      }
 
-        .scene-container {
-            flex: 1;
-        }
+      .scene-container {
+        flex: 1;
+      }
 
-        .about-content {
-            flex: 1;
-            padding: 20px;
-            background: #de43ba;
-            color: #fff;
-            font-family: 'Playfair Display', serif;
-        }
+      .about-content {
+        flex: 1;
+        padding: 20px;
+        background: #de43ba;
+        color: #fff;
+        font-family: "Playfair Display", serif;
+      }
 
-        /* Estilos para las palabras en la esfera */
-       /* .label {
+      /* Estilos para las palabras en la esfera */
+      /* .label {
             position: absolute;
             background: rgba(222, 67, 186, 0.5);
             border: 1px solid #de43ba;
@@ -42,102 +34,143 @@
             padding: 5px 10px;
         }*/
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <div class="scene-container">
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
-        <script>
-            // Configuración básica de la escena
-            const scene = new THREE.Scene();
-            const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
-            const renderer = new THREE.WebGLRenderer();
-            renderer.setSize(window.innerWidth / 2, window.innerHeight);
-            document.querySelector('.scene-container').appendChild(renderer.domElement);
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/110/three.min.js"></script>
+      <script>
+        // Configuración básica de la escena
+        const scene = new THREE.Scene();
+        const camera = new THREE.PerspectiveCamera(
+          75,
+          window.innerWidth / window.innerHeight,
+          0.1,
+          1000
+        );
+        const renderer = new THREE.WebGLRenderer();
+        renderer.setSize(window.innerWidth / 2, window.innerHeight);
+        document
+          .querySelector(".scene-container")
+          .appendChild(renderer.domElement);
 
-            // Crear una esfera para la galería 3D
-            const geometry = new THREE.SphereGeometry(5, 32, 32);
-            const material = new THREE.MeshBasicMaterial({ color: 0x0088ff, wireframe: true });
-            const sphere = new THREE.Mesh(geometry, material);
-            scene.add(sphere);
+        // Crear una esfera para la galería 3D
+        const geometry = new THREE.SphereGeometry(5, 32, 32);
+        const material = new THREE.MeshBasicMaterial({
+          color: 0x0088ff,
+          wireframe: true,
+        });
+        const sphere = new THREE.Mesh(geometry, material);
+        scene.add(sphere);
 
-            // Crear un objeto de texto 3D usando la fuente predeterminada
-            const textOptions = {
-                size: 0.6,
-                height: 0.01, // Ajusta la altura para que las palabras sobresalgan
-            };
+        // Crear un objeto de texto 3D usando la fuente predeterminada
+        const textOptions = {
+          size: 0.6,
+          height: 0.01, // Ajusta la altura para que las palabras sobresalgan
+        };
 
-            const loader = new THREE.FontLoader();
-            loader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function(font) {
-                const words = ["WordPress", "Python", "SEM", "HTML", "CSS", "SEO", "MongoDB", "PostgreSQL", "Svelte", "SvelteKit", "Node.js", "Kotlin", "SpringBoot", "Gradle", "JavaScript"];
-                
-                const interval = 1000; // Intervalo de tiempo entre la aparición de palabras (1 segundo)
+        const loader = new THREE.FontLoader();
+        loader.load(
+          "https://threejs.org/examples/fonts/helvetiker_regular.typeface.json",
+          function (font) {
+            const words = [
+              "WordPress",
+              "Python",
+              "SEM",
+              "HTML",
+              "CSS",
+              "SEO",
+              "MongoDB",
+              "PostgreSQL",
+              "Svelte",
+              "SvelteKit",
+              "Node.js",
+              "Kotlin",
+              "SpringBoot",
+              "Gradle",
+              "JavaScript",
+            ];
 
-                words.forEach((word, index) => {
-                    setTimeout(() => {
-                        const textGeometry = new THREE.TextGeometry(word, {
-                            font: font,
-                            ...textOptions
-                        });
+            const interval = 1000; // Intervalo de tiempo entre la aparición de palabras (1 segundo)
 
-                        const textMaterial = new THREE.MeshBasicMaterial({ color: 0xde43ba });
-                        const textMesh = new THREE.Mesh(textGeometry, textMaterial);
-
-                        textMesh.scale.set(1.0, 1.0, 1.0); 
-                        const angle = (Math.PI * 2 * index) / words.length;
-                        const distanceFromCenter = (2 * Math.PI * 11.5) / words.length;
-                        const radius = 7;
-
-                        // Ajusta la posición Z para que las palabras sobresalgan
-                        textMesh.position.set(
-                            Math.cos(angle) * distanceFromCenter,
-                            Math.sin(angle) * distanceFromCenter,
-                            2 + index * 0.2  // Ajusta la posición Z
-                        );
-
-                        scene.add(textMesh);
-                    }, index * interval);
+            words.forEach((word, index) => {
+              setTimeout(() => {
+                const textGeometry = new THREE.TextGeometry(word, {
+                  font: font,
+                  ...textOptions,
                 });
 
-                camera.position.z = 11;
+                const textMaterial = new THREE.MeshBasicMaterial({
+                  color: 0xde43ba,
+                });
+                const textMesh = new THREE.Mesh(textGeometry, textMaterial);
 
-                function animateSphere() {
-                    sphere.rotation.x += 0.005;
-                    sphere.rotation.y += 0.005;
-                    renderer.render(scene, camera);
-                    requestAnimationFrame(animateSphere);
-                }
+                textMesh.scale.set(1.0, 1.0, 1.0);
+                const angle = (Math.PI * 2 * index) / words.length;
+                const distanceFromCenter = (2 * Math.PI * 11.5) / words.length;
+                const radius = 7;
 
-                animateSphere();
+                // Ajusta la posición Z para que las palabras sobresalgan
+                textMesh.position.set(
+                  Math.cos(angle) * distanceFromCenter,
+                  Math.sin(angle) * distanceFromCenter,
+                  2 + index * 0.2 // Ajusta la posición Z
+                );
+
+                scene.add(textMesh);
+              }, index * interval);
             });
-        </script>
+
+            camera.position.z = 11;
+
+            function animateSphere() {
+              sphere.rotation.x += 0.005;
+              sphere.rotation.y += 0.005;
+              renderer.render(scene, camera);
+              requestAnimationFrame(animateSphere);
+            }
+
+            animateSphere();
+          }
+        );
+      </script>
     </div>
 
     <div class="about-content">
-        Soy Irina Ichim, una desarrolladora full-stack apasionada por crear
-        soluciones digitales. Mi trayectoria profesional comenzó como
-        emprendedora, donde dirigí varios negocios. Durante ese tiempo,
-        descubrí la importancia de tener presencia en línea y decidí
-        adentrarme en el mundo de <span style="color: #de43ba">WordPress, SEO y SEM</span> para crear y optimizar
-        mis propias páginas web.<br><br> A medida que profundizaba en el desarrollo
-        web, surgió la pasión por la programación. Exploré diversas
-        tecnologías y herramientas, como<span style="color: #de43ba"> HTML, CSS, JavaScript, Svelte y Svelte Kit, GitHub, Figma,
-        Trello, Spring Boot, Node.js, PostgreSQL, MongoDB, Gradle y Kotlin.</span>
-        Cada paso me permitió ampliar mis habilidades y conocimientos en el
-        ámbito de la programación y el desarrollo de aplicaciones.<br><br>  Mi enfoque es crear 
-        experiencias digitales atractivas, funcionales y eficientes para mis clientes, utilizando
-        las últimas tecnologías y mejores prácticas.<br><br><span style="color: #de43ba"> Si estás buscando una profesional versátil y
-        comprometida con la excelencia, estaré encantada de colaborar contigo
-        en tu próximo proyecto. </span><br><br> Además, tengo un gran interés en<span style="color: #de43ba"> colaborar con
-        expertos del sector y trabajar en equipo</span> para abordar desafíos
-        complejos y emocionantes. Me encanta la dinámica del trabajo en grupo,
-        donde cada miembro puede aportar su experiencia única y juntos crear
-        soluciones innovadoras.<br><br> También es importante mencionar que tengo interés en el <span style="color: #de43ba">trabajo remoto y la flexibilidad laboral.</span> Valorar
-        la posibilidad de trabajar de manera remota me permite aprovechar al
-        máximo mi pasión por la programación y mantener un equilibrio
-        saludable entre mi vida personal y profesional.
-    
+      Soy Irina Ichim, una desarrolladora full-stack apasionada por crear
+      soluciones digitales. Mi trayectoria profesional comenzó como
+      emprendedora, donde dirigí varios negocios. Durante ese tiempo, descubrí
+      la importancia de tener presencia en línea y decidí adentrarme en el mundo
+      de <span style="color: #de43ba">WordPress, SEO y SEM</span> para crear y
+      optimizar mis propias páginas web.<br /><br />
+      A medida que profundizaba en el desarrollo web, surgió la pasión por la
+      programación. Exploré diversas tecnologías y herramientas, como<span
+        style="color: #de43ba"
+      >
+        HTML, CSS, JavaScript, Svelte y Svelte Kit, GitHub, Figma, Trello,
+        Spring Boot, Node.js, PostgreSQL, MongoDB, Gradle y Kotlin.</span
+      >
+      Cada paso me permitió ampliar mis habilidades y conocimientos en el ámbito
+      de la programación y el desarrollo de aplicaciones.<br /><br />
+      Mi enfoque es crear experiencias digitales atractivas, funcionales y
+      eficientes para mis clientes, utilizando las últimas tecnologías y mejores
+      prácticas.<br /><br /><span style="color: #de43ba">
+        Si estás buscando una profesional versátil y comprometida con la
+        excelencia, estaré encantada de colaborar contigo en tu próximo
+        proyecto. </span
+      ><br /><br />
+      Además, tengo un gran interés en<span style="color: #de43ba">
+        colaborar con expertos del sector y trabajar en equipo</span
+      >
+      para abordar desafíos complejos y emocionantes. Me encanta la dinámica del
+      trabajo en grupo, donde cada miembro puede aportar su experiencia única y
+      juntos crear soluciones innovadoras.<br /><br />
+      También es importante mencionar que tengo interés en el
+      <span style="color: #de43ba"
+        >trabajo remoto y la flexibilidad laboral.</span
+      >
+      Valorar la posibilidad de trabajar de manera remota me permite aprovechar
+      al máximo mi pasión por la programación y mantener un equilibrio saludable
+      entre mi vida personal y profesional.
     </div>
-</body>
-</html>
-</body>
+  </body>
 </html>
