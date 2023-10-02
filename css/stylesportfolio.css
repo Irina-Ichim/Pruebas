@@ -1,0 +1,30 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color:#1f242d;
+}
+
+.card {
+    width: 200px;
+    height: 150px;
+    margin: 10px;
+    background: rgba(222, 67, 186, 0.5);
+    border: 1px solid #de43ba;
+    color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+    text-align: center;
+    border-radius: 10px;
+}
