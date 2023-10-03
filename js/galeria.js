@@ -1,6 +1,6 @@
 const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(
-  75,
+  80,
   window.innerWidth / window.innerHeight,
   0.1,
   1000
@@ -12,7 +12,7 @@ document
   .appendChild(renderer.domElement);
 
 // Crear una esfera para la galería 3D
-const geometry = new THREE.SphereGeometry(5, 32, 32);
+const geometry = new THREE.SphereGeometry(5, 44, 44);
 const material = new THREE.MeshBasicMaterial({
  // color: 0x0088ff,
  color: 0xde43ba,
@@ -65,7 +65,7 @@ loader.load(
 
         textMesh.scale.set(1.0, 1.0, 1.0);
         const angle = (Math.PI * 2 * index) / words.length;
-        const distanceFromCenter = (2 * Math.PI * 13.5) / words.length;
+        const distanceFromCenter = (2 * Math.PI * 12.5) / words.length;
         const radius = 7;
 
         // Ajusta la posición Z para que las palabras sobresalgan
