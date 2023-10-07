@@ -5,7 +5,7 @@ Este proyecto consiste en una galería 3D interactiva y una presentación person
 
 ## Captura de Pantalla
 
-![Captura de Pantalla](Img/Pruebas3D.png)
+![Captura de Pantalla](Img/ImgPrueba3D.png)
 
 ## Contenido
 
@@ -45,5 +45,5 @@ Para ejecutar este proyecto, necesitarás un navegador web moderno que admita la
 Este proyecto utiliza la biblioteca [Three.js](https://threejs.org/) para crear la escena 3D y [Google Fonts](https://fonts.google.com/) para la fuente utilizada en la presentación personal.
 
 - Desarrolladora: Irina Ichim
-- Tres.js: [https://threejs.org/](https://threejs.org/)
+- Threes.js: [https://threejs.org/](https://threejs.org/)
 - Fuente utilizada: [Playfair Display](https://fonts.google.com/specimen/Playfair+Display)

@@ -1,6 +1,6 @@
 body {
     display: flex;
-    justify-content: center;
+  justify-content: center;
     align-items: center;
     min-height: 100vh;
     transform-style: preserve-3d;
@@ -16,6 +16,7 @@ body {
     transform-style: preserve-3d;
     transition: 1.5s;
    transform: perspective(1000px) rotateY(0deg);
+   
 }
 
 .box .card {
