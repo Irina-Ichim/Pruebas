@@ -1,45 +1,70 @@
-
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 body {
-    background: #1f242d;
-    color: #fff;
-    font-family: 'Playfair Display', serif;
-    display: flex;
-    overflow: hidden;
+  background: #1f242d;
+  color: #fff;
+  font-family: "Playfair Display", serif;
+  display: flex;
+  overflow: hidden;
+}
+nav {
+  background-color: #333;
+  padding: 10px;
 }
 
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+}
+
+li {
+  margin-right: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  transition: color 0.3s ease;
+}
+
+a:hover {
+  color: #de43ba;
+}
 
 .galeria3d {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
 }
 
 /* Estilos específicos para la galería 3D */
 .keywords {
-    perspective: 1000px;
+  perspective: 1000px;
 }
 
 .keyword {
-    transform-style: preserve-3d;
-    transform: rotateY(0deg);
-    transition: transform 0.3s ease;
+  transform-style: preserve-3d;
+  transform: rotateY(0deg);
+  transition: transform 0.3s ease;
 }
 
 .keywords:hover .keyword {
-    transform: rotateY(360deg);
+  transform: rotateY(360deg);
 }
-span{
-    color:#de43ba
+span {
+  color: #de43ba;
 }
-.about-content{
-    font-size: 17px;
-    text-align: justify;
-    margin: 90px 20px;
+.about-content {
+  font-size: 17px;
+  text-align: justify;
+  margin: 90px 20px;
 }
